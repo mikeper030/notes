@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+
+
+    <PreferenceCategory
+        android:title="@string/local"></PreferenceCategory>
+    <ListPreference
+        android:entries="@array/Language"
+        android:entryValues="@array/languagekey"
+        android:key="lang"
+        android:title="@string/currentlocale"
+        />
+
+
+
+
+
+
+
+    <PreferenceCategory
+        android:title="@string/pattern_lock">
+    </PreferenceCategory>
+
+    <SwitchPreference
+        android:defaultValue="false"
+        android:key="pattern"
+        android:title="@string/pattern"
+        />
+    <Preference
+        android:title="@string/change_pattern"
+        android:key="pt">
+        <intent android:targetPackage="org.ultimatetoolsil.mike.note"
+            android:targetClass="org.ultimatetoolsil.mike.note.PatternActivity"
+            android:data="true"/>
+
+    </Preference>
+
+
+    <PreferenceCategory
+        android:title="@string/about_us">
+
+    </PreferenceCategory>
+    <Preference android:title="@string/privacy"
+        android:key="myKey">
+        <intent android:action="android.intent.action.VIEW"
+            android:data="https://mobapps2017.wordpress.com/
+   מדיניות-פרטיות
+              " />
+    </Preference>
+
+    <Preference android:title="@string/removeads"
+        android:key="myKey">
+        <intent android:targetPackage="org.ultimatetoolsil.mike.note"
+            android:targetClass="org.ultimatetoolsil.mike.note.play"/>
+    </Preference>
+
+
+
+</PreferenceScreen>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">meine Notizen</string>
+    <string name="question_delete" >Sind Sie sicher, dass Sie die Notiz löschen möchten?</string>
+    <string name="cancel" >stornieren</string>
+    <string name="created" >hergestellt in</string>
+    <string name="check" >Dies ist eine Erinnerung, die Sie interessieren würden</string>
+    <string name="share_using" >Teilen mit</string>
+    <string name="file_save" >Artikel gespeichert</string>
+    <string name="error" >Etwas schief gelaufen, bitte später nochmal versuchen</string>
+    <string name="save_before_exit" >Möchten Sie vor dem Ausstieg Änderungen vornehmen?</string>
+    <string name="yes" >Ja</string>
+    <string name="no" >Nein</string>
+    <string name="item_deleted" >Artikel gelöscht</string>
+    <string name="local" >Sprache</string>
+    <string name="removeads" >Anzeigen entfernen</string>
+    <string name="currentlocale" >Deutsche</string>
+    <string name="privacy" >Datenschutz-Bestimmungen</string>
+    <string name="please_add" >Bitte Titel hinzufügen</string>
+    <string name="please_add_items" >Keine Gegenstände gefunden</string>
+    <string name="exit" >Drücken Sie erneut, um zu beenden</string>
+    <string name="pattern_lock" >Sperre App mit Muster</string>
+    <string name="pattern" >sperren:</string>
+    <string name="about_us" >Über uns</string>
+    <string name="Complete" >Abgeschlossen</string>
+    <string name="Error" >Fehler</string>
+    <string name="Upload" >sparen</string>
+    <string name="edit" >bearbeiten</string>
+    <string name="share" >Aktie</string>
+    <string name="change_pattern" >Änderungsmuster</string>
+    <string name="change_pat" />
+    <string name="password_correct" >Gesperrt deaktiviert</string>
+    <string name="action_settings">Einstellungen</string>
+    <string name="delete">löschen</string>
+    <string name="please_draw">Bitte zeichne ein muster</string>
+    <string name="create_reminder" >Erinnerung erstellen</string>
+    <string name="title" >Titel</string>
+    <string name="content">Inhalt</string>
+</resources>

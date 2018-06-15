@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Notlarim</string>
+    <string name="question_delete" >Notu silmek istediğinizden emin misiniz?</string>
+    <string name="delete" >silmek</string>
+    <string name="cancel" >iptal etmek</string>
+    <string name="created" >Tarihinde yaratılan</string>
+    <string name="check" >Bu, ilgilendiğiniz bir hatırlatmadır</string>
+    <string name="share_using" >Kullanarak paylaşmak</string>
+    <string name="file_save" >Öğe kaydedildi</string>
+    <string name="error" >Bir şeyler yanlış oldu. Lütfen sonra tekrar deneyiniz</string>
+    <string name="save_before_exit" >Çıkmadan önce değişiklikleri uygulamak ister misiniz?</string>
+    <string name="yes" >Evet</string>
+    <string name="no" >yok hayır</string>
+    <string name="item_deleted" >Öğe silindi</string>
+    <string name="local" >dil</string>
+    <string name="removeads" >reklamları kaldırmak</string>
+    <string name="currentlocale" >Türk</string>
+    <string name="privacy" >Gizlilik Politikası</string>
+    <string name="please_add" >Lütfen başlık ekle</string>
+    <string name="please_add_items" >Hiçbir öğe bulunamadı + eklemek için basın</string>
+    <string name="exit" >Çıkmak için tekrar basın</string>
+    <string name="pattern_lock" >Desenli uygulamayı kilitleme</string>
+    <string name="pattern" >kilitlemek:</string>
+    <string name="about_us" >Hakkımızda</string>
+    <string name="Complete" >Tamamlanan</string>
+    <string name="Error" >hata</string>
+    <string name="Upload" >kayıt etmek</string>
+    <string name="edit" >düzenlemek</string>
+    <string name="share" >pay</string>
+    <string name="change_pattern" >Deseni değiştir</string>
+    <string name="change_pat" />
+    <string name="password_correct" >Kilit devre dışı</string>
+    <string name="please_draw">Lütfen bir desen çiz</string>
+    <string name="action_settings">ayarlar</string>
+    <string name="create_reminder" >Hatırlatıcıyı yarat</string>
+    <string name="title" >Başlık</string>
+    <string name="content">içerik</string>
+</resources>

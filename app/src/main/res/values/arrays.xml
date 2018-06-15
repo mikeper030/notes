@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+
+
+    <string-array name="Language">
+        <item>עברית (HE)</item>
+        <item>English (US)</item>
+        <item>Francais(FR)</item>
+        <item>Deutch (DE)</item>
+
+        <item>Türk (TR)</item>
+    </string-array>
+
+    <string-array name="languagekey">
+        <item>he</item>
+        <item>en</item>
+        <item>fr</item>
+        <item>de</item>
+
+        <item>tr</item>
+    </string-array>
+
+
+
+</resources>

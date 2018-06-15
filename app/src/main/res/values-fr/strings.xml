@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">mes notes</string>
+    <string name="question_delete" >Êtes-vous sûr de vouloir supprimer la note?</string>
+    <string name="delete" >effacer</string>
+    <string name="cancel" >Annuler</string>
+    <string name="created" >créé à</string>
+    <string name="check" >C\'est un rappel que vous seriez intéressé par</string>
+    <string name="share_using" >Partager en utilisant</string>
+    <string name="file_save" >Élément sauvegardé</string>
+    <string name="error" >Quelque chose c\'est mal passé. Merci d\'essayer plus tard</string>
+    <string name="save_before_exit" >Voulez-vous appliquer les modifications avant de sortir?</string>
+    <string name="yes" >Oui</string>
+    <string name="no" >non</string>
+    <string name="item_deleted" >Élément supprimé</string>
+    <string name="local" >la langue</string>
+    <string name="removeads" >Supprimez la pub</string>
+    <string name="privacy" >politique de confidentialité</string>
+    <string name="please_add" >Veuillez ajouter le titre</string>
+    <string name="please_add_items" >Aucun élément trouvé appuyez sur + pour ajouter</string>
+    <string name="exit" >Appuyez de nouveau pour sortir</string>
+    <string name="pattern_lock" >Verrouiller l\'application avec le motif</string>
+    <string name="pattern" >fermer à clé:</string>
+    <string name="about_us" >à propos de nous</string>
+    <string name="Complete" >Terminé</string>
+    <string name="Error" >Erreur</string>
+    <string name="Upload" >enregistrer</string>
+    <string name="edit" >modifier</string>
+    <string name="share" >partager</string>
+    <string name="change_pattern" >Changement de modèle</string>
+    <string name="change_pat" />
+    <string name="action_settings">paramètres</string>
+    <string name="currentlocale">français</string>
+    <string name="password_correct">Verrouillage invalide</string>
+    <string name="please_draw">Dessinez un modèle</string>
+    <string name="create_reminder" >Créer un rappel</string>
+    <string name="title" >Titre</string>
+    <string name="content">contenu</string>
+</resources>

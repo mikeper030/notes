@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ملاحظاتي</string>
+    <string name="question_delete" >هل تريد بالتأكيد حذف الملاحظة؟</string>
+    <string name="delete" >حذف</string>
+    <string name="cancel" >إلغاء</string>
+    <string name="created" >أنشئت في</string>
+    <string name="check" >هذا هو تذكير كنت قد تكون مهتمة في</string>
+    <string name="share_using" >مشاركة باستخدام</string>
+    <string name="file_save" >تم حفظ العنصر</string>
+    <string name="error" >هناك شئ خاطئ، يرجى المحاولة فى وقت لاحق</string>
+    <string name="save_before_exit" >هل تريد تطبيق التغييرات قبل الخروج؟</string>
+    <string name="no" >لا</string>
+    <string name="item_deleted" >تم حذف العنصر</string>
+    <string name="local" >لغة</string>
+    <string name="removeads" >ازالة الاعلانات</string>
+    <string name="currentlocale" >عربى</string>
+    <string name="privacy" >سياسة الخصوصية</string>
+    <string name="please_add" >يرجى إضافة عنوان</string>
+    <string name="please_add_items" >لم يتم العثور على أية عناصر اضغط على + لإضافة</string>
+    <string name="exit" >ضغط مرة أخرى للخروج</string>
+    <string name="pattern_lock" >قفل التطبيق مع نمط</string>
+    <string name="pattern" >قفل:</string>
+    <string name="about_us" >معلومات عنا</string>
+    <string name="Complete" >منجز</string>
+    <string name="Error" >خطأ</string>
+    <string name="Upload" >حفظ</string>
+    <string name="edit" >تصحيح</string>
+    <string name="share" >شارك</string>
+    <string name="change_pattern" >تغيير نمط</string>
+    <string name="password_correct" >قفل تعطيل</string>
+    <string name="action_settings">إعدادات</string>
+    <string name="please_draw">يرجى رسم نمط</string>
+    <string name="yes">نعم فعلا</string>
+    <string name="create_reminder" >إنشاء تذكير</string>
+    <string name="title" >عنوان</string>
+    <string name="content">يحتوى</string>
+
+</resources>

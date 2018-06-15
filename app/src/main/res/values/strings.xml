@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">My notes reminder</string>
+    <string name="question_delete">are you sure you want to delete the note?</string>
+    <string name="delete">Delete</string>
+    <string name="cancel">CANCEL</string>
+    <string name="created">created at</string>
+    <string name="check">this is a reminder you would be interested in</string>
+    <string name="share_using">share using</string>
+    <string name="file_save">item saved</string>
+    <string name="action_settings">prefrences</string>
+    <string name="error">something went wrong please try again later</string>
+    <string name="save_before_exit">do you want to apply changes before exit?</string>
+    <string name="yes">YES</string>
+    <string name="no">NO</string>
+    <string name="item_deleted">item  deleted</string>
+    <string name="local">language</string>
+    <string name="removeads">remove ads</string>
+    <string name="currentlocale">english</string>
+    <string name="privacy">privacy policy</string>
+    <string name="please_add">please add title</string>
+    <string name="please_add_items">no items found press + to add</string>
+    <string name="exit">press again to exit</string>
+    <string name="pattern_lock" >Lock app with pattern</string>
+    <string name="pattern">lock:</string>
+    <string name="about_us">about us</string>
+    <string name="Complete">Complete</string>
+    <string name="Error">error</string>
+    <string name="Upload">Save</string>
+    <string name="edit">edit</string>
+    <string name="share">share</string>
+    <string name="please_draw">please draw pattern</string>
+    <string name="change_pattern">change pattern</string>
+    <string name="title_activity_pattern_switch">patternSwitch</string>
+    <string name="password_correct">lock disabled</string>
+    <string name="create_reminder">Create reminder</string>
+    <string name="title">Title</string>
+    <string name="content">Content</string>
+</resources>
