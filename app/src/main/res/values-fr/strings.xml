@@ -36,4 +36,13 @@
     <string name="create_reminder" >Créer un rappel</string>
     <string name="title" >Titre</string>
     <string name="content">contenu</string>
+    <string name="tit">Please add title first</string>
+    <string name="add_img">"ajouter une image "</string>
+    <string name="action_search">Search</string>
+    <string name="backups">backups</string>
+    <string name="perm">S\'il vous plaît activer toutes les autorisations pour l\'enregistrement de travailler !!!</string>
+    <string name="off">"éteindre "</string>
+    <string name="restore">restaurer</string>
+    <string name="press">Appuyez ici pour voir le rappel</string>
+    <string name="no_items">"Aucun élément trouvé "</string>
 </resources>

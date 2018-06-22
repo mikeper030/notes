@@ -36,4 +36,13 @@
     <string name="create_reminder" >Erinnerung erstellen</string>
     <string name="title" >Titel</string>
     <string name="content">Inhalt</string>
+    <string name="tit">Please add title first</string>
+    <string name="add_img">"Bild hinzufügen "</string>
+    <string name="action_search">Search</string>
+    <string name="backups">backups</string>
+    <string name="perm">arbeiten</string>
+    <string name="off">"ausschalten "</string>
+    <string name="restore">"wiederherstellen "</string>
+    <string name="press">Drücken Sie hier, um die Erinnerung anzuzeigen</string>
+    <string name="no_items">"Keine Elemente gefunden "</string>
 </resources>

@@ -35,5 +35,14 @@
     <string name="create_reminder" >إنشاء تذكير</string>
     <string name="title" >عنوان</string>
     <string name="content">يحتوى</string>
+    <string name="tit">Please add title first</string>
+    <string name="add_img">"إضافة صورة "</string>
+    <string name="action_search">Search</string>
+    <string name="backups">backups</string>
+    <string name="perm">يرجى تمكين جميع الأذونات للتسجيل في العمل!</string>
+    <string name="off">"اطفيء "</string>
+    <string name="restore">استعادة</string>
+    <string name="press">اضغط هنا لعرض التذكير</string>
+    <string name="no_items">"لم يتم العثور على العناصر "</string>
 
 </resources>

@@ -61,7 +61,7 @@ public class Itemadapter extends RecyclerView.Adapter<Itemadapter.itemviewholder
                         public boolean onMenuItemClick(MenuItem item) {
                             switch (item.getItemId()) {
                                 case R.id.edit /*2131558586*/:
-                                    Itemadapter.this.mFilename2 = ((TextView) itemviewholder.this.itemView.findViewById(R.id.itemdetailsdisplay)).getText().toString() + utils.FILE_EXTENSION;
+                                    Itemadapter.this.mFilename2 = ((TextView) itemviewholder.this.itemView.findViewById(R.id.itemdetailsdisplay)).getText().toString() + Constants.FILE_EXTENSION;
                                     Intent editinfo = new Intent(v.getContext(), addnote.class);
                                     editinfo.putExtra("item file", Itemadapter.this.mFilename2);
                                     Log.d("Intent", Itemadapter.this.mFilename2);
@@ -69,10 +69,10 @@ public class Itemadapter extends RecyclerView.Adapter<Itemadapter.itemviewholder
                                     break;
                                 case R.id.item_delete /*2131558587*/:
 
-                                    Itemadapter.this.mFilename = ((TextView) itemviewholder.this.itemView.findViewById(R.id.itemdetailsdisplay)).getText().toString() + utils.FILE_EXTENSION;
+                                    Itemadapter.this.mFilename = ((TextView) itemviewholder.this.itemView.findViewById(R.id.itemdetailsdisplay)).getText().toString() + Constants.FILE_EXTENSION;
                                     Log.d("file name is", Itemadapter.this.mFilename);
                                     itemviewholder.this.mLoadeditem = utils.getitembyfilename(v.getContext(), Itemadapter.this.mFilename);
-                                    utils.delete(v.getContext(), itemviewholder.this.mLoadeditem.getItem_name() + utils.FILE_EXTENSION);
+                                    utils.delete(v.getContext(), itemviewholder.this.mLoadeditem.getItem_name() + Constants.FILE_EXTENSION);
                                     Itemadapter.items.remove(itemviewholder.this.getAdapterPosition());
                                     Itemadapter.this.notifyDataSetChanged();
                                     Toast.makeText(v.getContext(), R.string.item_deleted, Toast.LENGTH_SHORT).show();

@@ -35,5 +35,14 @@
     <string name="create_reminder" >Create reminder</string>
     <string name="title" >Title</string>
     <string name="content">Content</string>
+    <string name="tit">Please add title first</string>
+    <string name="add_img">Add image</string>
+    <string name="action_search">Search</string>
+    <string name="backups">backups</string>
+    <string name="perm">Please enable all permissions for recording to work!!!</string>
+    <string name="off">Off</string>
+    <string name="restore">Restore</string>
+    <string name="press">Press here to view reminder</string>
+    <string name="no_items">No items found</string>
 
 </resources>

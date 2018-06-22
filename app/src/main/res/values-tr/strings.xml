@@ -36,4 +36,13 @@
     <string name="create_reminder" >Hatırlatıcıyı yarat</string>
     <string name="title" >Başlık</string>
     <string name="content">içerik</string>
+    <string name="tit">Please add title first</string>
+    <string name="add_img">"resim eklemek "</string>
+    <string name="action_search">Search</string>
+    <string name="backups">backups</string>
+    <string name="perm">"Lütfen kayıt için tüm izinleri etkinleştirin! "</string>
+    <string name="off">"kapatmak "</string>
+    <string name="restore">geri</string>
+    <string name="press">Hatırlatıcıyı görmek için buraya basın</string>
+    <string name="no_items">"hiç bir öğe bulunamadı "</string>
 </resources>

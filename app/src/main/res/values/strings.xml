@@ -21,7 +21,7 @@
     <string name="please_add">please add title</string>
     <string name="please_add_items">no items found press + to add</string>
     <string name="exit">press again to exit</string>
-    <string name="pattern_lock" >Lock app with pattern</string>
+    <string name="pattern_lock">Lock app with pattern</string>
     <string name="pattern">lock:</string>
     <string name="about_us">about us</string>
     <string name="Complete">Complete</string>
@@ -36,4 +36,15 @@
     <string name="create_reminder">Create reminder</string>
     <string name="title">Title</string>
     <string name="content">Content</string>
+    <string name="tit">Please add title first</string>
+    <string name="add_img">Add image</string>
+    <string name="action_search">Search</string>
+    <string name="perm">Please enable all permissions for recording to work!!!</string>
+    <string name="backups">backups</string>
+    <string name="off">off</string>
+    <string name="restore">Restore</string>
+    <string name="press">Press here to view reminder</string>
+    <string name="add_widget">Add widget</string>
+    <string name="notes_widget">Notes widget</string>
+    <string name="no_items">No items found</string>
 </resources>

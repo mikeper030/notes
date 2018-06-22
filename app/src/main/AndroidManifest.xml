@@ -5,8 +5,9 @@
 
     <uses-sdk
         android:maxSdkVersion="26"
-        android:minSdkVersion="15" />
+        android:minSdkVersion="16" />
 
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
@@ -14,6 +15,7 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.VIBRATE" />
+
     <supports-screens
         android:anyDensity="true"
         android:largeScreens="true"
@@ -21,6 +23,7 @@
         android:resizeable="true"
         android:smallScreens="true"
         android:xlargeScreens="true" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -40,31 +43,60 @@
             </intent-filter>
         </activity>
         <activity android:name=".settings" />
-
-        <activity android:name=".addnote"
+        <activity
+            android:name=".addnote"
+            android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateUnchanged|adjustPan" />
 
         <receiver
             android:name=".AlarmReciever"
             android:process=":remote" />
+        <receiver android:name=".BootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+            </intent-filter>
+        </receiver>
 
         <activity
             android:name=".PatternActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".play"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
-        <service
-            android:name=".MyFirebaseMessagingService">
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".play"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
+        <service android:name=".MyFirebaseMessagingService">
             <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-        <service
-            android:name=".MyFirebaseInstanceIDService">
+        <service android:name=".MyFirebaseInstanceIDService">
             <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
+        <service android:name=".AlarmService" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAPQcgiDf3dXeXetZqNIHD4n8TKxppX_ZQ" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="android.support.VERSION"
+            android:value="26.0.2"
+            tools:node="replace" />
+
+        <receiver android:name=".NoteWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/note_widget_info" />
+        </receiver>
     </application>
 
 </manifest>

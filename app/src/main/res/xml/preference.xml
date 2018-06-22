@@ -21,7 +21,7 @@
 
     <PreferenceCategory
         android:title="@string/pattern_lock">
-    </PreferenceCategory>
+
 
     <SwitchPreference
         android:defaultValue="false"
@@ -36,8 +36,21 @@
             android:data="true"/>
 
     </Preference>
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:title="@string/backups"
+        >
+        <SwitchPreference
+            android:title="@string/off"
+            android:key="bck">
 
+        </SwitchPreference>
+        <Preference
+            android:title="@string/restore"
+            android:key="restore">
 
+        </Preference>
+    </PreferenceCategory>
     <PreferenceCategory
         android:title="@string/about_us">
 

@@ -108,4 +108,13 @@
     <string name="create_reminder" >צור תזכיר</string>
     <string name="title" >כותרת</string>
     <string name="content">תוכן</string>
+    <string name="tit">Please add title first</string>
+    <string name="add_img">הוסף תמונה</string>
+    <string name="action_search">Search</string>
+    <string name="backups">backups</string>
+    <string name="perm">הפעל את כל ההרשאות!!</string>
+    <string name="off">כבוי</string>
+    <string name="restore">שחזר</string>
+    <string name="press">לחץ כאן לראות את התזכיר!</string>
+    <string name="no_items">לא נמצאו תוצאות</string>
 </resources>
