@@ -29,8 +29,8 @@ public class AlarmReciever extends BroadcastReceiver {
         int ID = (int) ((new Date().getTime()/1000L) % Integer.MAX_VALUE);
         Log.d("random",String.valueOf(ID));
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-        Intent notification = new Intent(context,addnote.class);
-        notification.putExtra("notification",title);
+        Intent notification = new Intent(context,MainActivity.class);
+        notification.putExtra("title",title);
         notification.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
         PendingIntent pi = PendingIntent.getActivity(context,ID,notification,PendingIntent.FLAG_UPDATE_CURRENT);

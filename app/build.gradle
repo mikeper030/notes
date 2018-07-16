@@ -8,17 +8,21 @@ android {
         applicationId "org.ultimatetoolsil.mike.note"
         minSdkVersion 16
         targetSdkVersion 26
-        versionCode 4
-        versionName "1.2"
+        versionCode 8
+        versionName "1.4"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
 
         lintOptions {
             checkReleaseBuilds false
+            disable 'MissingTranslation'
+                disable 'Deprecation'
+
             // Or, if you prefer, you can continue to check for errors in release builds,
             // but continue the build even when errors are found:
             abortOnError false
         }
+        multiDexEnabled  true
     }
     packagingOptions {
         exclude 'META-INF/DEPENDENCIES.txt'
@@ -34,13 +38,25 @@ android {
     }
 
 
+    signingConfigs {
+        release {
+            storeFile file("/Users/mike/Desktop/mykeystorenotes.jks")
+            storePassword "311597660mM"
+            keyAlias "mykeystorenotes"
+            keyPassword "311597660mM"
 
+        }
+    }
 
 
     buildTypes {
+
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            debuggable=false
+            signingConfig signingConfigs.release
+
         }
     }
 
@@ -52,8 +68,13 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
 
     })
-    compile 'com.google.android.gms:play-services-auth:11.4.0'
-    compile 'com.google.android.gms:play-services-drive:11.4.0'
+    compile 'com.facebook.android:facebook-login:[4,5)'
+    compile 'com.google.firebase:firebase-auth:11.6.0'
+    compile 'com.google.firebase:firebase-core:11.6.0'
+    compile 'com.google.firebase:firebase-storage:11.6.0'
+    compile 'net.skoumal.fragmentback:fragment-back:0.2.3'
+    compile 'com.google.android.gms:play-services-auth:11.6.0'
+    compile 'com.google.android.gms:play-services-drive:11.6.0'
     compile 'com.android.support:recyclerview-v7:26.0.1'
     compile 'com.mindorks:paracamera:0.2.2'
     compile 'com.devlomi.record-view:record-view:1.2.2beta'
@@ -75,8 +96,9 @@ dependencies {
     compile 'io.paperdb:paperdb:2.0'
     compile 'com.github.dmytrodanylyk.circular-progress-button:library:1.1.3'
     compile 'com.firebase:firebase-client-android:2.3.1'
-    compile 'com.google.android.gms:play-services-ads:11.4.0'
-    compile 'com.google.firebase:firebase-messaging:11.4.0'
+    compile 'com.google.android.gms:play-services-ads:11.6.0'
+    compile 'com.google.firebase:firebase-messaging:11.6.0'
+    compile 'com.google.firebase:firebase-database:11.6.0'
     testCompile 'junit:junit:4.12'
 }
 apply plugin: 'com.google.gms.google-services'

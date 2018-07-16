@@ -243,8 +243,8 @@ public class addnote extends AppCompatActivity implements DatePickerDialog.OnDat
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
         mInterstitialAd = new InterstitialAd(this);
-        //mInterstitialAd.setAdUnitId("ca-app-pub-2883974575291426/2807388488");
-        mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
+        mInterstitialAd.setAdUnitId("ca-app-pub-2883974575291426/2807388488");
+        //mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
 
         mInterstitialAd.loadAd(new AdRequest.Builder().build());
 

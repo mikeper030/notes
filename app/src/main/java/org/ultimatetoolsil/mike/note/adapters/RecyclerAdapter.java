@@ -1,9 +1,13 @@
 package org.ultimatetoolsil.mike.note.adapters;
 
+import android.app.DownloadManager;
 import android.content.Context;
 import android.content.Intent;
 import android.database.DataSetObserver;
 import android.graphics.Color;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
@@ -27,6 +31,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.thoughtbot.expandablerecyclerview.ExpandableRecyclerViewAdapter;
 import com.thoughtbot.expandablerecyclerview.models.ExpandableGroup;
 import com.thoughtbot.expandablerecyclerview.viewholders.GroupViewHolder;
@@ -36,6 +48,7 @@ import org.ultimatetoolsil.mike.note.Item;
 import org.ultimatetoolsil.mike.note.Itemadapter;
 import org.ultimatetoolsil.mike.note.R;
 import org.ultimatetoolsil.mike.note.addnote;
+import org.ultimatetoolsil.mike.note.addnoteFragment;
 import org.ultimatetoolsil.mike.note.models.NoteTitle;
 import org.ultimatetoolsil.mike.note.models.SubItem;
 import org.ultimatetoolsil.mike.note.utils;
@@ -44,6 +57,10 @@ import org.ultimatetoolsil.mike.note.viewholders.TitleviewHolder;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static org.ultimatetoolsil.mike.note.MainFragment.auth;
+import static org.ultimatetoolsil.mike.note.MainFragment.myRef;
+import static org.ultimatetoolsil.mike.note.MainFragment.userID;
 
 /**
  * Created by mike on 15 Jun 2018.
@@ -56,13 +73,18 @@ public class RecyclerAdapter extends ExpandableRecyclerViewAdapter <RecyclerAdap
     private static String mFilename;
     private static String mFilename2;
     private List<NoteTitle> itemsFiltered;
+    private FirebaseDatabase mFirebaseDatabase;
+    private String userID;
+    private DatabaseReference myRef;
     String searchText;
-    public RecyclerAdapter(Context context, List<NoteTitle> titles) {
+    FirebaseAuth auth;
+    private boolean db;
+    public RecyclerAdapter(Context context, List<NoteTitle> titles,boolean isdbsource) {
         super(titles);
         this.context = context;
         this.items=titles;
         this.itemsFiltered = titles;
-
+        this.db=isdbsource;
 
     }
 
@@ -105,11 +127,12 @@ public class RecyclerAdapter extends ExpandableRecyclerViewAdapter <RecyclerAdap
     @Override
     public void onBindGroupViewHolder(NoteViewHolder holder, int position, ExpandableGroup group) {
         holder.setGenreicTitle(context, group);
-        String desc = items.get(position).getNotetitle();
-        SpannableStringBuilder sb=null;
+
         if(searchText!=null)
         if(searchText.length()>0) {
             //color your text here
+            String desc = items.get(position).getNotetitle();
+            SpannableStringBuilder sb=null;
             int index = desc.indexOf(searchText);
             while (index > -1) {
                  sb = new SpannableStringBuilder(desc);
@@ -187,6 +210,7 @@ public class RecyclerAdapter extends ExpandableRecyclerViewAdapter <RecyclerAdap
         @Override
         public void onClick(final View v) {
             Log.d("counter",String.valueOf(counter));
+
             counter++;
             if (isExpanded){
                 isExpanded=false;
@@ -197,30 +221,126 @@ public class RecyclerAdapter extends ExpandableRecyclerViewAdapter <RecyclerAdap
             }
             //            try {
             if (v.getId() == this.menu.getId()) {
+                auth=FirebaseAuth.getInstance();
+
+                if(auth.getCurrentUser()!=null){
+                    db=true;
+                    mFirebaseDatabase = FirebaseDatabase.getInstance();
+                    myRef = mFirebaseDatabase.getReference();
+                    FirebaseUser user = auth.getCurrentUser();
+                    userID = user.getUid();
+                }
                 this.popupMenu = new PopupMenu(v.getContext(), v);
                 this.popupMenu.inflate(R.menu.recycler_item_menu);
                 this.popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     public boolean onMenuItemClick(MenuItem item) {
                         switch (item.getItemId()) {
+
+
                             case R.id.edit /*2131558586*/:
-                                int itemPoition= getLayoutPosition();
-                                RecyclerAdapter.this.mFilename2 = ((TextView) RecyclerAdapter.NoteViewHolder.this.itemView.findViewById(R.id.list_item_genre_name)).getText().toString() + Constants.FILE_EXTENSION;
-                                Intent editinfo = new Intent(v.getContext(), addnote.class);
-                                Log.d("position",String.valueOf(itemPoition));
-                                editinfo.putExtra("index",itemPoition);
-                                Log.d("Intent", RecyclerAdapter.mFilename2);
-                                v.getContext().startActivity(editinfo);
-                                break;
+
+                              if(!db) {
+                                  int itemPoition = getLayoutPosition();
+
+                                  Log.d("position", String.valueOf(itemPoition));
+                                  Bundle bundle = new Bundle();
+                                  bundle.putInt("index", itemPoition);
+                                   // set Fragmentclass Arguments
+                                  addnoteFragment fragobj = new addnoteFragment();
+                                  fragobj.setArguments(bundle);
+                                  AppCompatActivity activity = (AppCompatActivity) v.getContext();
+
+                                  activity.getSupportFragmentManager().beginTransaction().replace(android.R.id.content, fragobj).addToBackStack(null).commit();
+                                 Log.d("name","no db");
+                              }else {
+
+                                  RecyclerAdapter.this.mFilename=((TextView) NoteViewHolder.this.itemView.findViewById(R.id.list_item_genre_name)).getText().toString();
+                                  Log.d("name",mFilename);
+
+                                      myRef.child("users").child(userID).child("notes").orderByChild("title").equalTo(mFilename).addChildEventListener(new ChildEventListener() {
+                                          @Override
+                                          public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                                              String title = dataSnapshot.child("title").getValue(String.class);
+                                              String content = dataSnapshot.child("content").getValue(String.class);
+                                              Bundle bundle = new Bundle();
+                                              bundle.putString("title", title);
+                                              bundle.putString("content", content);
+                                              addnoteFragment fragobj = new addnoteFragment();
+                                              fragobj.setArguments(bundle);
+                                              AppCompatActivity activity = (AppCompatActivity) v.getContext();
+
+                                              activity.getSupportFragmentManager().beginTransaction().replace(android.R.id.content, fragobj).addToBackStack(null).commit();
+                                          }
+
+                                          @Override
+                                          public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+                                          }
+
+                                          @Override
+                                          public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+                                          }
+
+                                          @Override
+                                          public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+                                          }
+
+                                          @Override
+                                          public void onCancelled(DatabaseError databaseError) {
+
+                                          }
+                                      });
+                                  }
+
+
+                              break;
                             case R.id.item_delete /*2131558587*/:
 
                                 //RecyclerAdapter.this.mFilename = ((TextView) RecyclerAdapter.NoteViewHolder.this.itemView.findViewById(R.id.list_item_genre_name)).getText().toString() + Constants.FILE_EXTENSION;
 //                                Log.d("file name is", RecyclerAdapter.this.mFilename);
 //                                RecyclerAdapter.NoteViewHolder.this.mLoadeditem = utils.getitembyfilename(v.getContext(), RecyclerAdapter.this.mFilename);
 //                                utils.delete(v.getContext(), RecyclerAdapter.NoteViewHolder.this.mLoadeditem.getItem_name() + Constants.FILE_EXTENSION);
-                                utils.deleteNoteByIndex(context,getAdapterPosition());
-                                RecyclerAdapter.items.remove(RecyclerAdapter.NoteViewHolder.this.getAdapterPosition());
-                                RecyclerAdapter.this.notifyDataSetChanged();
-                                Toast.makeText(v.getContext(), R.string.item_deleted, Toast.LENGTH_SHORT).show();
+                                if(!db) {
+                                    try {
+                                        utils.deleteNoteByIndex(context, getAdapterPosition());
+                                        RecyclerAdapter.items.remove(RecyclerAdapter.NoteViewHolder.this.getAdapterPosition());
+                                        notifyDataSetChanged();
+                                        notifyItemRemoved(RecyclerAdapter.NoteViewHolder.this.getAdapterPosition());
+                                        Toast.makeText(v.getContext(), R.string.item_deleted, Toast.LENGTH_SHORT).show();
+                                    } catch (Exception e) {
+                                        e.printStackTrace();
+                                    }
+                                }else{
+                                    Query query=myRef.child("users").child(userID).child("notes").orderByChild("date").equalTo(items.get(getAdapterPosition()).getMdatetime());
+                                    query.addChildEventListener(new ChildEventListener() {
+                                        @Override
+                                        public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                                            dataSnapshot.getRef().setValue(null);
+                                        }
+
+                                        @Override
+                                        public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+                                        }
+
+                                        @Override
+                                        public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+                                        }
+
+                                        @Override
+                                        public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+                                        }
+
+                                        @Override
+                                        public void onCancelled(DatabaseError databaseError) {
+
+                                        }
+                                    });
+                                }
                                 break;
                             case R.id.item_share /*2131558588*/:
                                 NoteTitle titler= items.get(getAdapterPosition());

@@ -38,19 +38,14 @@
     </Preference>
     </PreferenceCategory>
     <PreferenceCategory
-        android:title="@string/backups"
-        >
-        <SwitchPreference
-            android:title="@string/off"
-            android:key="bck">
-
-        </SwitchPreference>
-        <Preference
-            android:title="@string/restore"
-            android:key="restore">
-
-        </Preference>
-    </PreferenceCategory>
+        android:title="@string/accounts">
+        <Preference android:title="@string/not_logged"
+            android:key="acc" />
+        <Preference android:title="@string/sign_out"
+            android:key="signo"/>
+        <Preference android:title="@string/acc_sett"
+            android:key="sett"/>
+        ></PreferenceCategory>
     <PreferenceCategory
         android:title="@string/about_us">
 
